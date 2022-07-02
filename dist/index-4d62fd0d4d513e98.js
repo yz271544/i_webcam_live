@@ -502,7 +502,7 @@ function initSync(bytes) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('index-45d0c12b5cd37d6c_bg.wasm', import.meta.url);
+        input = new URL('index-4d62fd0d4d513e98_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 

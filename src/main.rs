@@ -54,7 +54,7 @@ fn Video<G: Html>(ctx: Scope) -> View<G> {
         div {
             video(
                 ref=video_ref,
-                class="border border-gray-400 rounded-lg",
+                class="border border-gray-400 rounded-lg slign-top-middle",
                 autoplay=true,
                 width=640,
                 height=480,
