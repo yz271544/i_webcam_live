@@ -31,11 +31,11 @@ fn Video<G: Html>(ctx: Scope) -> View<G> {
         video_stream.set_vidio_stream(&json!({
             "audio": false,
             "video": {
-                "facingMode": "environment",
+                "facingMode": "user",
                 "width": 640,
                 "height": 480
             }
-        }));
+        })).await;
     });
 
     // ctx.spawn_future(async move {
@@ -56,10 +56,10 @@ fn Video<G: Html>(ctx: Scope) -> View<G> {
                 ref=video_ref,
                 class="border border-gray-400 rounded-lg",
                 autoplay=true,
-                width=1280,
-                height=720,
-                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-                type="video/mp4"
+                width=640,
+                height=480,
+                // src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+                // type="video/mp4"
             )
 
         }
