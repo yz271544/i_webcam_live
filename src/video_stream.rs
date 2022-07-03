@@ -3,6 +3,8 @@ use wasm_bindgen::{JsValue, JsCast};
 use wasm_bindgen_futures::JsFuture;
 use web_sys::{HtmlVideoElement, MediaStreamConstraints, MediaStream};
 
+use crate::Devices;
+
 pub struct VideoStream {
     el: HtmlVideoElement,
 }
@@ -15,11 +17,20 @@ impl VideoStream {
     }
 
     pub async fn set_vidio_stream(&self, video_constraints: &serde_json::Value) {
-        let window = web_sys::window().expect("no global `window` exists");
-        let navigator = window.navigator();
-        let devices = navigator.media_devices().expect("no `navigator.mediaDevices` exists");
+        // let window = web_sys::window().expect("no global `window` exists");
+        // let navigator = window.navigator();
+        // let devices = navigator
+        //     .media_devices()
+        //     .expect("no `navigator.mediaDevices` exists");
+
+        let devices = Devices::get_media_devices();
 
         info!("devices (tracing_wasm): {:?}", devices);
+        let all_devices = JsFuture::from(devices.enumerate_devices().unwrap())
+            .await
+            .unwrap();
+
+        web_sys::console::log_1(&all_devices);
         web_sys::console::log_1(&devices);
 
         let mut constraints = MediaStreamConstraints::new();
