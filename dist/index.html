@@ -6,13 +6,14 @@
 
     <link rel="stylesheet" href="/tailwind.css">
 
-<link rel="preload" href="/index-d3e023efa666974b_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/index-d3e023efa666974b.js"></head>
+<link rel="preload" href="/i_webcam_live-5d017109e88143e5_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/i_webcam_live-5d017109e88143e5.js"></head>
 <body>
 
 
-<script type="module">import init from '/index-d3e023efa666974b.js';init('/index-d3e023efa666974b_bg.wasm');</script><script>(function () {
-    var url = 'ws://' + window.location.host + '/_trunk/ws';
+<script type="module">import init from '/i_webcam_live-5d017109e88143e5.js';init('/i_webcam_live-5d017109e88143e5_bg.wasm');</script><script>(function () {
+    var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    var url = protocol + '//' + window.location.host + '/_trunk/ws';
     var poll_interval = 5000;
     var reload_upon_connect = () => {
         window.setTimeout(
