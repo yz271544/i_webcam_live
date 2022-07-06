@@ -7,7 +7,7 @@ use crate::AppState;
 pub fn Controls<G: Html>(ctx: Scope) -> View<G> {
 
     let app_state = use_context::<AppState>(ctx);
-    let devices = app_state.devices.get().video_devices();
+    // let devices = app_state.devices.get().video_devices();
 
     view! {ctx,
         div(class="absolute bottom-2 p-5 w-full") {
@@ -31,20 +31,20 @@ pub fn Controls<G: Html>(ctx: Scope) -> View<G> {
                     ease-in-out
                     m-0
                     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none", aria-label="Default select example") {
-                        // option(value="") {
-                        //     "Select"
-                        // }
-                        // option(value="user") {
-                        //     "User"
-                        // }
-                        // option(value="environment") {
-                        //     "Environment"
-                        // }
-                        KeyedList::new(devices).map(|(id, device)| {
-                            option(value=id) {
-                                device.name
-                            }
-                        })
+                        option(value="") {
+                            "Select"
+                        }
+                        option(value="user") {
+                            "User"
+                        }
+                        option(value="environment") {
+                            "Environment"
+                        }
+                        // KeyedList::new(devices).map(|(id, device)| {
+                        //     option(value=id) {
+                        //         device.name
+                        //     }
+                        // })
                     }   
                 }
             }
