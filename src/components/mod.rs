@@ -1,11 +1,14 @@
 mod video;
+mod controls;
 
 use sycamore::prelude::*;
 use sycamore_futures::*;
 use tracing::info;
-pub use video::Video;
-
 use crate::AppState;
+
+pub use video::Video;
+pub use controls::Controls;
+
 
 #[component]
 pub fn App<G: Html>(ctx: Scope<'_>) -> View<G> {
