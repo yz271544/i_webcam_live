@@ -4,13 +4,13 @@ use wasm_bindgen::{JsValue, JsCast};
 use wasm_bindgen_futures::JsFuture;
 use web_sys::{MediaDeviceKind, MediaDevices, MediaDeviceInfo};
 
-#[derive(Debug, Default, Clone, PartialEq)]
+#[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct Devices(Vec<Device>);
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Device {
     pub kind: MediaDeviceKind,
-    pub labe: String,
+    pub label: String,
     pub id: String,
 }
 
@@ -33,7 +33,7 @@ impl Iterator for Devices {
 impl Devices {
     pub async fn load() -> Self {
         let devices = Self::get_media_devices();
-        
+
         let all_devices = JsFuture::from(devices.enumerate_devices().unwrap()).await.unwrap();
 
         Self::from(&all_devices)
@@ -81,7 +81,7 @@ impl From<JsValue> for Device {
         let device = v.unchecked_into::<MediaDeviceInfo>();
         Device {
             kind: device.kind(),
-            labe: device.label(),
+            label: device.label(),
             id: device.device_id(),
         }
     }
