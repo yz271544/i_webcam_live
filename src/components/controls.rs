@@ -7,8 +7,9 @@ use crate::{AppState, devices::Device};
 
 
 #[component]
-pub async fn Controls<'a, G: Html>(ctx: Scope<'a>, state: &'a Signal<AppState>) -> View<G> {
+pub async fn Controls<'a, G: Html>(ctx: Scope<'a>) -> View<G> {
 
+    let state: &'a Signal<AppState> = use_context::<_>(ctx);
     // state.track();
     let devices: &ReadSignal<Vec<Device>> = create_memo(ctx, || {
         state.get().devices.get().video_devices().cloned().collect()
@@ -18,7 +19,6 @@ pub async fn Controls<'a, G: Html>(ctx: Scope<'a>, state: &'a Signal<AppState>) 
         state.track();
         spawn_local_scoped(ctx, async move {
             info!("controls {:?}", devices);
-            // web_sys::console::log_1(&devices);
         });
     });
 

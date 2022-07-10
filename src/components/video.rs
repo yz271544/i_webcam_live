@@ -6,7 +6,9 @@ use crate::{VideoStream, AppState, Controls};
 
 
 #[component]
-pub async fn Video<'a, G: Html>(ctx: Scope<'a>, state: &'a Signal<AppState>) -> View<G> {
+pub async fn Video<'a, G: Html>(ctx: Scope<'a>) -> View<G> {
+
+    let state: &'a Signal<AppState> = use_context::<_>(ctx);
     let video_ref = create_node_ref(ctx);
 
     state.track();
@@ -39,7 +41,8 @@ pub async fn Video<'a, G: Html>(ctx: Scope<'a>, state: &'a Signal<AppState>) -> 
                 width=640,
                 height=480,
             )
-            Controls(state)
+            // Controls(state)
+            Controls()
         }
     }
 }

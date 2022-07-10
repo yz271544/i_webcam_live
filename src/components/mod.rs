@@ -23,7 +23,8 @@ pub async fn App<'a, G: Html>(ctx: Scope<'a>) -> View<G> {
     view!{
         ctx,
         div(class="p-2"){
-            Video(state)
+            // Video(state)
+            Video()
         }
     }
 }
