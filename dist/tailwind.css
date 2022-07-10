@@ -592,6 +592,14 @@ video {
   }
 }
 
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
 .absolute {
   position: absolute;
 }
@@ -624,6 +632,10 @@ video {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .rounded {
@@ -772,7 +784,7 @@ video {
 }
 
 @media (min-width: 1280px) {
-  .xl\:w-96 {
-    width: 24rem;
+  .xl\:w-1\/3 {
+    width: 33.333333%;
   }
 }

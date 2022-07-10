@@ -342,14 +342,18 @@ checksum = "3a3fad8d7500e6f00f7415f3f3b4d7c465b9edce7eaa9f2d725ced0f99fae3c2"
 dependencies = [
  "ahash",
  "futures",
+ "html-escape",
  "indexmap",
  "js-sys",
+ "once_cell",
  "paste",
  "sycamore-core",
+ "sycamore-futures",
  "sycamore-macro",
  "sycamore-reactive",
  "sycamore-web",
  "wasm-bindgen",
+ "wasm-bindgen-futures",
  "web-sys",
 ]
 

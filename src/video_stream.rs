@@ -25,7 +25,7 @@ impl VideoStream {
 
         let devices = Devices::get_media_devices();
 
-        info!("devices (tracing_wasm): {:?}", devices);
+        // info!("devices (tracing_wasm): {:?}", devices);
         let all_devices = JsFuture::from(devices.enumerate_devices().unwrap())
             .await
             .unwrap();
@@ -44,7 +44,7 @@ impl VideoStream {
         ).await.unwrap();
 
         let media_stream = media.unchecked_into::<MediaStream>();
-        info!("media_stream (tracing_wasm): {:?}", media_stream);
+        // info!("media_stream (tracing_wasm): {:?}", media_stream);
         self.el.set_src_object(Some(&media_stream));
     }
 }
